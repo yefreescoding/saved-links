@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" />
+    <title>Links component</title>
+    <link rel="stylesheet" href="src/styles/index.css" />
+  </head>
+  <body>
+    <div class="page__wrapper">
+      <header class="header">
+        <nav class="header__nav">
+          <ul class="header__links">
+            <li class="header__link">
+              <a href="">github</a>
+            </li>
+            <li class="header__link">
+              <a href="">socials</a>
+            </li>
+            <li class="header__link">
+              <a href="">suggestion</a>
+            </li>
+            <li class="header__link">
+              <a href="">about us</a>
+            </li>
+          </ul>
+          <a href=""> Support </a>
+        </nav>
+      </header>
+      <main class="main">
+        <form id="form-link" class="main__form">
+          <input
+            id="user-link"
+            type="url"
+            placeholder="https://website.dev/things-i-liked"
+            required
+          />
+          <button type="submit">add</button>
+        </form>
+        <ul id="links-container" class="main__links">
+          <!-- Links will appear here -->
+        </ul>
+        <!-- <div id="loading-message">Looking for the link</div> -->
+        <script type="module" src="./src/scripts/main.js"></script>
+      </main>
+    </div>
+  </body>
+</html>
