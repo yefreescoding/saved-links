@@ -99,6 +99,8 @@ ul {
 .main__form {
   width: 100%;
   display: flex;
+  padding: 0.5rem;
+  margin: 2rem 0;
   gap: 0.5rem;
 
   & input {
@@ -135,8 +137,21 @@ ul {
   }
 }
 
+.main__list_title {
+  /* margin: 1rem; */
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--clr-bgk-base);
+
+  & h3 {
+    color: var(--clr-text-base);
+    font-weight: 500;
+  }
+}
+
 .main__links {
-  margin-block: 1rem;
+  /* margin-block: 1rem; */
   display: flex;
   flex-flow: column;
 }
@@ -153,8 +168,6 @@ ul {
 
 .main__link {
   --_gap: 1rem;
-
-  transition: transform 240ms ease-in-out, opacity 440ms ease-in-out;
   & a {
     overflow: hidden;
     padding: var(--_gap);
@@ -166,8 +179,10 @@ ul {
     border-radius: var(--border-radius-comp);
     background-color: var(--clr-bgk);
     & div {
+      flex-wrap: wrap;
       align-items: center;
       display: flex;
+
       gap: calc(var(--_gap) / 2);
     }
     & h3 {
@@ -184,7 +199,7 @@ ul {
   border-radius: inherit;
   background-color: var(--clr-bgk-base-hover);
   transition: opacity 100ms,
-    transform 150ms var(--_transition-delay, 0ms) ease-in-out;
+    transform 120ms var(--_transition-delay, 0ms) ease-in-out;
   transform: translateY(var(--_translate, 0));
   opacity: var(--_opacity, 0);
 }
@@ -202,7 +217,4 @@ ul {
 .main__links li:focus-within {
   --_width: 1;
   --_opacity: 1;
-}
-
-.added {
 }

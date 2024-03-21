@@ -4,7 +4,7 @@ const links = [
     title: "Invisible Details of Interaction Design",
     shortedLink: "rauno.me",
     link: "https://rauno.me/craft/interaction-design",
-    timeSubmitted: "Wen, Mar 13",
+    timeSubmitted: "Wednesday, Mar 13",
     classAdded: false,
   },
   {
@@ -12,7 +12,7 @@ const links = [
     title: "uilabs",
     shortedLink: "uilabs.dev",
     link: "https://www.uilabs.dev",
-    timeSubmitted: "Fri, Mar 15",
+    timeSubmitted: "Friday, Mar 15",
     classAdded: false,
   },
   {
@@ -20,7 +20,7 @@ const links = [
     title: "Habits of great software engineers",
     shortedLink: "vadimkravcenko.com",
     link: "https://vadimkravcenko.com/shorts/habits-of-great-software-engineers/?ref=dailydev",
-    timeSubmitted: "Fri, Mar 15",
+    timeSubmitted: "Friday, Mar 15",
     classAdded: false,
   },
 ];
@@ -137,7 +137,7 @@ function shortedUrl(url) {
 }
 
 function formatDate(date) {
-  const options = { weekday: "short", month: "short", day: "numeric" };
+  const options = { weekday: "short", month: "long", day: "numeric" };
   return date.toLocaleString("en-US", options);
 }
 
