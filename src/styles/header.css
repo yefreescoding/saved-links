@@ -48,10 +48,16 @@
     display: flex;
     align-items: center;
     gap: 3px;
-    /* background-color: lightcoral; */
+    & svg {
+      transition: transform 240ms linear;
+    }
   }
 
   & a:hover {
     color: var(--clr-text-base-hover);
+
+    & svg {
+      transform: rotate(-8deg);
+    }
   }
 }
