@@ -1,35 +1,12 @@
-const links = [
-  {
-    id: 103,
-    title: "Invisible Details of Interaction Design",
-    shortedLink: "rauno.me",
-    link: "https://rauno.me/craft/interaction-design",
-    timeSubmitted: "Wednesday, Mar 13",
-    classAdded: false,
-  },
-  {
-    id: 104,
-    title: "uilabs",
-    shortedLink: "uilabs.dev",
-    link: "https://www.uilabs.dev",
-    timeSubmitted: "Friday, Mar 15",
-    classAdded: false,
-  },
-  {
-    id: 106,
-    title: "Habits of great software engineers",
-    shortedLink: "vadimkravcenko.com",
-    link: "https://vadimkravcenko.com/shorts/habits-of-great-software-engineers/?ref=dailydev",
-    timeSubmitted: "Friday, Mar 15",
-    classAdded: false,
-  },
-];
+import { formatDate, shortedUrl } from "./function.js";
+import links from "../data/mock-links.json" assert { type: "json" };
 
 const mainLinksContainer = document.getElementById("links-container");
 const formLinks = document.getElementById("form-link");
-const loadingMessage = document.getElementById("loading-message");
 
-let addVisible = true;
+window.addEventListener("DOMContentLoaded", () => {
+  displayLinks(links);
+});
 
 // Usar el formulario para crear objetos con datos de los usuarios
 formLinks.addEventListener("submit", (e) => {
@@ -39,13 +16,8 @@ formLinks.addEventListener("submit", (e) => {
   let linkValue = formLinks.querySelector("#user-link").value;
 
   createNewLink(linkValue);
-  // loadingMessage.style.display = "none";
 
   formLinks.querySelector("#user-link").value = "";
-});
-
-window.addEventListener("DOMContentLoaded", () => {
-  displayLinks(links);
 });
 
 function displayLinks(arr) {
@@ -115,32 +87,6 @@ async function createNewLink(url) {
   }
 }
 
-function addNewAnimation(stateVisible) {
-  // return !stateVisible;
-  // const elementsInsideMain = mainLinksContainer.querySelectorAll(".main__link");
-  // const elementsArray = Array.from(elementsInsideMain);
-
-  // const lastElement = elementsArray[elementsArray.length - 1];
-
-  // lastElement.setAttribute("aria-hidden", "false");
-
-  // elementsArray.forEach((element) => {
-  //   element.setAttribute("aria-hidden", "false");
-  // });
-
-  console.log(elementsArray);
-}
-
-function shortedUrl(url) {
-  const parsedUrl = new URL(url);
-  return parsedUrl.hostname;
-}
-
-function formatDate(date) {
-  const options = { weekday: "short", month: "long", day: "numeric" };
-  return date.toLocaleString("en-US", options);
-}
-
 async function getTitleFromUrl(url) {
   try {
     // Fetch HTML content of the URL
@@ -161,8 +107,3 @@ async function getTitleFromUrl(url) {
     return "error";
   }
 }
-
-// Example usage
-getTitleFromUrl("https://vercel.com/geist/icons").then((title) =>
-  console.log(title)
-);
