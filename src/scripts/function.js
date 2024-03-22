@@ -5,5 +5,11 @@ export function formatDate(date) {
 
 export function shortedUrl(url) {
   const parsedUrl = new URL(url);
-  return parsedUrl.hostname;
+  let hostname = parsedUrl.hostname;
+
+  // Remove 'www.' prefix if present
+  if (hostname.startsWith("www.")) {
+    hostname = hostname.slice(4);
+  }
+  return hostname;
 }
