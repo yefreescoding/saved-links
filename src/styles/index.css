@@ -52,7 +52,8 @@
   background-color: var(--color-bgk-success);
 
   /* transition animations */
-  transition: all 240ms ease-in-out;
+  transition: opacity 100ms linear, scale 240ms ease-in-out,
+    transform 360ms ease;
   transform: scale(0.9, 0.9) translateY(-100%);
   display: hidden;
   opacity: 0;

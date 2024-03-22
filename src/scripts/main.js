@@ -5,6 +5,10 @@ const mainLinksContainer = document.getElementById("links-container");
 const formLinks = document.getElementById("form-link");
 const linkMessage = document.getElementById("loading-message");
 
+// const mockLinks = links;
+
+// const linksReversed = mockLinks.reverse();
+
 window.addEventListener("DOMContentLoaded", () => {
   displayLinks(links);
 });
@@ -65,7 +69,7 @@ function displayLinks(arr) {
     `;
   });
 
-  allLinks = allLinks.join("");
+  allLinks = allLinks.reverse().join("");
   mainLinksContainer.innerHTML = allLinks;
 }
 
