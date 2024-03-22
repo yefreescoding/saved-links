@@ -3,6 +3,7 @@ import links from "../data/mock-links.json" assert { type: "json" };
 
 const mainLinksContainer = document.getElementById("links-container");
 const formLinks = document.getElementById("form-link");
+const linkMessage = document.getElementById("loading-message");
 
 window.addEventListener("DOMContentLoaded", () => {
   displayLinks(links);
@@ -16,6 +17,11 @@ formLinks.addEventListener("submit", (e) => {
   let linkValue = formLinks.querySelector("#user-link").value;
 
   createNewLink(linkValue);
+
+  // linkMessage.setAttribute("aria-hidden", "false");
+  setTimeout(() => {
+    linkMessage.setAttribute("aria-hidden", "true");
+  }, "2500");
 
   formLinks.querySelector("#user-link").value = "";
 });
@@ -89,21 +95,25 @@ async function createNewLink(url) {
 
 async function getTitleFromUrl(url) {
   try {
-    // Fetch HTML content of the URL
     const response = await fetch(url);
     const html = await response.text();
 
-    // Create a temporary div element to parse the HTML
     const tempDiv = document.createElement("div");
     tempDiv.innerHTML = html;
 
-    // Extract the title element
     const titleElement = tempDiv.querySelector("title");
 
-    // Return the text content of the title element
-    return titleElement ? titleElement.textContent.trim() : "Untitled"; // Return "Untitled" if title not found
+    linkMessage.setAttribute("aria-hidden", "false");
+    linkMessage.setAttribute("data-error", "false");
+    linkMessage.innerText = "Link successfully saved";
+
+    return titleElement ? titleElement.textContent.trim() : "Untitled";
   } catch (error) {
     console.error("Error fetching title:", error);
+
+    linkMessage.setAttribute("aria-hidden", "false");
+    linkMessage.setAttribute("data-error", "true");
+    linkMessage.innerText = "Error getting title: " + error;
     return "error";
   }
 }

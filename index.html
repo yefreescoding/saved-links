@@ -168,7 +168,12 @@
           <a href="./pages/logIn.html"> Login </a>
         </nav>
       </header>
-      <div id="loading-message" class="loading_message">
+      <div
+        id="loading-message"
+        class="loading_message"
+        aria-hidden="true"
+        data-error="true"
+      >
         Looking for the link
       </div>
       <main class="main">
@@ -181,7 +186,7 @@
           />
           <button type="submit">add</button>
         </form>
-        <div class="main__list_title" aria-hidden="false">
+        <div class="main__list_title">
           <h3>Title</h3>
           <h3>Date</h3>
         </div>

@@ -31,7 +31,7 @@
     bottom: 0;
     height: 3px;
     width: 100%;
-    background-color: lightblue;
+    background-color: var(--clr-accent);
     transition: scale 240ms ease;
 
     scale: 0 1;
