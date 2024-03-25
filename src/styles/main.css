@@ -6,26 +6,27 @@
 .main__form {
   width: 100%;
   display: flex;
-  padding: 0.5rem;
+  padding: 0 0.5rem;
   margin: 2rem 0;
   gap: 0.5rem;
+  border: transparent;
+  border-radius: var(--border-radius-comp);
+  outline: 1px solid var(--clr-accent-2);
+  transition: all 140ms linear;
 
   & input {
     width: 100%;
     padding: 1rem;
     color: var(--clr-text-h);
-    background-color: var(--clr-bgk);
-    /* border: 1.5px solid var(--clr-bgk-base); */
+    background-color: transparent;
     border: transparent;
     border-radius: var(--border-radius-comp);
-    outline: 1px solid var(--clr-accent-2);
-    outline-offset: 1px;
-    transition: outline-offset 140ms linear;
+    transition: background 140ms;
+    outline: 1px solid transparent;
   }
 
   & input:focus {
-    outline: 1px solid var(--clr-text-base);
-    outline-offset: 3px;
+    background-color: none;
   }
 
   & button {
@@ -34,14 +35,20 @@
     color: var(--clr-text-base);
     text-transform: capitalize;
     border: none;
-    background-color: var(--clr-bgk);
+    background-color: transparent;
     border-radius: var(--border-radius-comp);
   }
 
   & button:hover {
     color: var(--clr-text-base-hover);
-    background-color: var(--clr-bgk-base-hover);
   }
+}
+
+.main__form:is(:focus, :hover) {
+  outline-offset: 3px;
+  color: var(--clr-text-base-hover);
+  outline: 1px solid var(--clr-text-base);
+  background-color: var(--clr-bgk-base);
 }
 
 .main__list_title {
