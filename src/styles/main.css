@@ -18,7 +18,7 @@
     /* border: 1.5px solid var(--clr-bgk-base); */
     border: transparent;
     border-radius: var(--border-radius-comp);
-    outline: 1px solid var(--clr-bgk-base);
+    outline: 1px solid var(--clr-accent-2);
     outline-offset: 1px;
     transition: outline-offset 140ms linear;
   }
@@ -49,7 +49,7 @@
   padding: 1rem;
   display: flex;
   justify-content: space-between;
-  border-bottom: 1px solid var(--clr-bgk-base);
+  border-bottom: 1px solid var(--clr-accent-2);
 
   & h3 {
     color: var(--clr-text-base);

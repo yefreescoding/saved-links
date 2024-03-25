@@ -11,14 +11,14 @@
   --clr-bgk-base: hsl(0, 0%, 90%);
   --clr-bgk-base-hover: hsl(0, 0%, 94%);
   --clr-accent: hsl(195, 53%, 89%);
-  --clr-accent-2: hsl(195, 93%, 22%);
+  --clr-accent-2: hsl(0, 0%, 70%);
 
   --border-radius-comp: 0.3rem;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --clr-bgk: hsl(0, 0%, 9%);
+    --clr-bgk: hsl(0, 0%, 7%);
     --clr-text-h: hsl(0, 0%, 90%);
     --clr-text-h-hover: hsl(0, 0%, 70%);
     --clr-text-base: hsl(0, 0%, 74%);
@@ -26,7 +26,7 @@
     --clr-bgk-base: hsl(0, 0%, 3%);
     --clr-bgk-base-hover: hsl(0, 0%, 15%);
     --clr-accent: hsl(195, 53%, 79%);
-    --clr-accent-2: hsl(195, 93%, 22%);
+    --clr-accent-2: hsl(0, 0%, 20%);
   }
 }
 
