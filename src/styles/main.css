@@ -61,6 +61,14 @@
   /* margin-block: 1rem; */
   display: flex;
   flex-flow: column;
+
+  & svg {
+    transition: all 120ms linear;
+  }
+
+  & :hover svg {
+    transform: rotate(24deg);
+  }
 }
 
 .main__link {
