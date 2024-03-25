@@ -64,11 +64,6 @@
 }
 
 .main__link {
-  opacity: 0;
-  transform: translateY(-100%);
-}
-
-.main__link[aria-hidden="false"] {
   opacity: 1;
   transform: translateY(0);
 }
