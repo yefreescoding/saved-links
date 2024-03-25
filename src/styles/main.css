@@ -1,13 +1,15 @@
 .main {
   width: min(100%, calc(var(--web-width) / 1.5));
   margin: 9vh auto;
+  padding: 0.5rem;
 }
 
 .main__form {
+  font-size: clamp(0.989rem, 1.5vw, 1rem);
   width: 100%;
   display: flex;
   padding: 0 0.5rem;
-  margin: 2rem 0;
+  margin: 1rem 0;
   gap: 0.5rem;
   border: transparent;
   border-radius: var(--border-radius-comp);
@@ -15,7 +17,8 @@
   transition: all 140ms linear;
 
   & input {
-    width: 100%;
+    flex: 1;
+    flex-shrink: 1;
     padding: 1rem;
     color: var(--clr-text-h);
     background-color: transparent;
@@ -52,7 +55,7 @@
 }
 
 .main__list_title {
-  /* margin: 1rem; */
+  font-size: clamp(0.95rem, 1.5vw, 1.1rem);
   padding: 1rem;
   display: flex;
   justify-content: space-between;
@@ -86,6 +89,7 @@
 .main__link {
   --_gap: 1rem;
   & a {
+    font-size: clamp(0.8rem, 1.5vw, 1rem);
     overflow: hidden;
     padding: var(--_gap);
     isolation: isolate;
@@ -95,13 +99,16 @@
     align-items: center;
     border-radius: var(--border-radius-comp);
     background-color: var(--clr-bgk);
-    & div {
-      flex-wrap: wrap;
+    & > div {
       align-items: center;
       display: flex;
-
       gap: calc(var(--_gap) / 2);
+
+      & div {
+        flex-wrap: wrap;
+      }
     }
+
     & h3 {
       font-weight: 600;
     }

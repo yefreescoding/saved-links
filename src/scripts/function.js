@@ -53,8 +53,10 @@ function generateLinkHTML(link) {
           stroke-linejoin="round"
           ></path>
           </svg>
-          <h3>${link.title}</h3>
-          <span> ${link.shortedLink} </span>
+          <div>
+            <h3>${link.title}</h3>
+            <span> ${link.shortedLink} </span>
+          </div>
         </div>
           <p>${link.timeSubmitted}</p>
       </a>
