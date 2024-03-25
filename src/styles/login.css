@@ -1,0 +1,33 @@
+.main_login {
+  width: min(100%, 90ch);
+  margin: 3rem auto;
+  display: grid;
+  & > * {
+    margin-block: 1rem;
+  }
+}
+
+.dropdown {
+  padding: 1rem;
+  border: 1.5px solid var(--clr-bgk-base);
+  & p {
+    margin-block: 1rem;
+    margin-left: 0.5rem;
+    font-size: 1.1rem;
+  }
+}
+
+.dropdown__label {
+  cursor: pointer;
+  background-color: var(--clr-bgk);
+  padding: 0.5rem;
+  border: 1.5px solid var(--clr-text-base);
+  color: var(--clr-text-base);
+  border-radius: 0.5rem;
+  transition: all 120ms;
+}
+
+.dropdown__label:is(:hover, :active) {
+  color: var(--clr-bgk);
+  background-color: var(--clr-text-h);
+}

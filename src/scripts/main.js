@@ -2,6 +2,8 @@ import { formatDate, shortedUrl, displayLinks } from "./function.js";
 import { getTitleFromUrl } from "./promises.js";
 import links from "../data/mock-links.json";
 
+import "./index.js";
+
 const mainLinksContainer = document.getElementById("links-container");
 const formLinks = document.getElementById("form-link");
 const linkNotify = document.getElementById("loading-message");
