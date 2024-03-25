@@ -30,6 +30,10 @@
   }
 }
 
+body {
+  background-color: var(--clr-bgk);
+}
+
 .page__wrapper {
   --web-width: 80em;
   background-color: var(--clr-bgk);

@@ -1,6 +1,9 @@
 import { formatDate, shortedUrl } from "./function.js";
 import links from "../data/mock-links.json" assert { type: "json" };
 
+// import { readFileSync } from "fs";
+// const links = JSON.parse(readFileSync("../data/mock-links.json"));
+
 const mainLinksContainer = document.getElementById("links-container");
 const formLinks = document.getElementById("form-link");
 const linkMessage = document.getElementById("loading-message");
