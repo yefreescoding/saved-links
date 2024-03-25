@@ -1,22 +1,14 @@
 import { formatDate, shortedUrl } from "./function.js";
 import links from "../data/mock-links.json" assert { type: "json" };
 
-// import { readFileSync } from "fs";
-// const links = JSON.parse(readFileSync("../data/mock-links.json"));
-
 const mainLinksContainer = document.getElementById("links-container");
 const formLinks = document.getElementById("form-link");
 const linkMessage = document.getElementById("loading-message");
-
-// const mockLinks = links;
-
-// const linksReversed = mockLinks.reverse();
 
 window.addEventListener("DOMContentLoaded", () => {
   displayLinks(links);
 });
 
-// Usar el formulario para crear objetos con datos de los usuarios
 formLinks.addEventListener("submit", (e) => {
   e.preventDefault();
   if (e.value === "") return;
@@ -25,7 +17,6 @@ formLinks.addEventListener("submit", (e) => {
 
   createNewLink(linkValue);
 
-  // linkMessage.setAttribute("aria-hidden", "false");
   setTimeout(() => {
     linkMessage.setAttribute("aria-hidden", "true");
   }, "2500");
