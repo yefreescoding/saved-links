@@ -99,6 +99,7 @@
     align-items: center;
     border-radius: var(--border-radius-comp);
     background-color: var(--clr-bgk);
+    transition: background-color 220ms;
     & > div {
       align-items: center;
       display: flex;
@@ -113,8 +114,13 @@
       font-weight: 600;
     }
   }
+
+  & a:hover {
+    background-color: var(--clr-bgk-base-hover);
+  }
 }
 
+/* 
 .main__links li a::after {
   z-index: -1;
   content: "";
@@ -141,4 +147,4 @@
 .main__links li:focus-within {
   --_width: 1;
   --_opacity: 1;
-}
+} */
