@@ -1,5 +1,5 @@
 export function formatDate(date) {
-  const options = { weekday: "short", month: "long", day: "numeric" };
+  const options = { weekday: "short", month: "short", day: "numeric" };
   return date.toLocaleString("en-US", options);
 }
 

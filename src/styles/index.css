@@ -13,7 +13,7 @@
   --clr-accent: hsl(195, 53%, 89%);
   --clr-accent-2: hsl(0, 0%, 80%);
 
-  --border-radius-comp: 0.3rem;
+  --border-radius-comp: 0.5rem;
 }
 
 @media (prefers-color-scheme: dark) {

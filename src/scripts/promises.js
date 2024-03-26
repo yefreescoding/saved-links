@@ -18,7 +18,7 @@ export async function getTitleFromUrl(url, nodeComponent) {
 
     nodeComponent.setAttribute("aria-hidden", "false");
     nodeComponent.setAttribute("data-error", "true");
-    nodeComponent.innerText = "Error getting title: " + error;
+    nodeComponent.innerText = "Sorry! Could not get the title.";
     return "error";
   }
 }

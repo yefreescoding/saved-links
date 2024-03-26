@@ -8,32 +8,28 @@
   font-size: clamp(0.989rem, 1.5vw, 1rem);
   width: 100%;
   display: flex;
-  padding: 0 0.5rem;
+  align-items: center;
   margin: 1rem 0;
-  gap: 0.5rem;
   border: transparent;
-  border-radius: var(--border-radius-comp);
   outline: 1px solid var(--clr-accent-2);
+  border-radius: var(--border-radius-comp);
   transition: all 140ms linear;
 
   & input {
-    flex: 1;
+    flex: 2;
     flex-shrink: 1;
-    padding: 1rem;
+    padding: 0.5rem;
     color: var(--clr-text-h);
     background-color: transparent;
-    border: transparent;
-    border-radius: var(--border-radius-comp);
-    transition: background 140ms;
-    outline: 1px solid transparent;
+    border: none;
   }
 
   & input:focus {
-    background-color: none;
+    outline: none;
   }
 
   & button {
-    padding: 0.5rem;
+    margin: 0 0.8rem;
     cursor: pointer;
     color: var(--clr-text-base);
     text-transform: capitalize;
@@ -47,7 +43,7 @@
   }
 }
 
-.main__form:is(:focus, :hover) {
+.main__form:is(:hover) {
   outline-offset: 3px;
   color: var(--clr-text-base-hover);
   outline: 1px solid var(--clr-text-base);
@@ -55,7 +51,7 @@
 }
 
 .main__list_title {
-  font-size: clamp(0.95rem, 1.5vw, 1.1rem);
+  font-size: clamp(0.9rem, 1.5vw, 1rem);
   padding: 1rem;
   display: flex;
   justify-content: space-between;
@@ -63,19 +59,16 @@
 
   & h3 {
     color: var(--clr-text-base);
-    font-weight: 500;
+    font-weight: 600;
   }
 }
 
 .main__links {
-  /* margin-block: 1rem; */
   display: flex;
   flex-flow: column;
-
   & svg {
     transition: all 120ms linear;
   }
-
   & :hover svg {
     transform: rotate(24deg);
   }
@@ -87,7 +80,7 @@
 }
 
 .main__link {
-  --_gap: 1rem;
+  --_gap: 0.9rem;
   & a {
     font-size: clamp(0.8rem, 1.5vw, 1rem);
     overflow: hidden;
@@ -99,14 +92,17 @@
     align-items: center;
     border-radius: var(--border-radius-comp);
     background-color: var(--clr-bgk);
-    transition: background-color 220ms;
+    transition: background-color 120ms;
     & > div {
       align-items: center;
       display: flex;
       gap: calc(var(--_gap) / 2);
 
       & div {
+        display: flex;
+        align-items: center;
         flex-wrap: wrap;
+        gap: calc(var(--_gap) / 2);
       }
     }
 
@@ -115,7 +111,7 @@
     }
   }
 
-  & a:hover {
+  & a:is(:hover, :focus) {
     background-color: var(--clr-bgk-base-hover);
   }
 }
