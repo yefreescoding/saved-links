@@ -94,7 +94,8 @@
     background-color: var(--clr-bgk);
     transition: background-color 120ms;
     & > div {
-      display: grid;
+      display: flex;
+      flex-wrap: wrap;
       gap: calc(var(--_gap) / 2);
 
       & div {
