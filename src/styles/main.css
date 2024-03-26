@@ -18,7 +18,7 @@
   & input {
     flex: 2;
     flex-shrink: 1;
-    padding: 0.5rem;
+    padding: 0.8rem 0.5rem;
     color: var(--clr-text-h);
     background-color: transparent;
     border: none;
@@ -80,7 +80,7 @@
 }
 
 .main__link {
-  --_gap: 0.9rem;
+  --_gap: 0.8rem;
   & a {
     font-size: clamp(0.8rem, 1.5vw, 1rem);
     overflow: hidden;
@@ -94,8 +94,7 @@
     background-color: var(--clr-bgk);
     transition: background-color 120ms;
     & > div {
-      align-items: center;
-      display: flex;
+      display: grid;
       gap: calc(var(--_gap) / 2);
 
       & div {
