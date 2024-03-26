@@ -1,9 +1,9 @@
 {
   "name": "mini-app",
   "description": "JavaScrip and React. Beginner.",
-  "private": "true",
-  "version": "0.0.3",
+  "version": "0.0.5",
   "type": "module",
+  "private": "true",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
