@@ -24,7 +24,7 @@ export function displayLinks(arr, container) {
 }
 
 // Function to generate HTML for a single link component
-function generateLinkHTML(link) {
+export function generateLinkHTML(link) {
   return `
     <li class="main__link">
       <a href=${link.link} target="_blank">

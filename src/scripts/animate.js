@@ -1,10 +1,8 @@
 import autoAnimate from "@formkit/auto-animate";
 
 const dropdown = document.getElementById("dropdown");
-// const dropdownArticle = document.querySelector(".dropdown__article");
 autoAnimate(dropdown);
 
-// Create the element initially
 const myArticle = document.createElement("article");
 myArticle.classList.add("dropdown__article");
 

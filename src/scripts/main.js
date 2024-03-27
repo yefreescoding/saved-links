@@ -9,6 +9,7 @@ import links from "../data/mock-links.json";
 import autoAnimate from "@formkit/auto-animate";
 
 import "./index.js";
+import "./search.js";
 
 const mainLinksContainer = document.getElementById("links-container");
 const formLinks = document.getElementById("form-link");
@@ -47,7 +48,7 @@ async function createNewLink(url) {
     };
 
     links.push(newLink);
-    addLinkToDOM(newLink, mainLinksContainer); // Add the new link to the DOM
+    addLinkToDOM(newLink, mainLinksContainer);
     console.log("New Object Created:", newLink);
   } catch (error) {
     console.error("Error creating the link", error);

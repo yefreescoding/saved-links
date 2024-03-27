@@ -4,5 +4,6 @@ import "../styles/resets.css";
 import "../styles/header.css";
 import "../styles/main.css";
 import "../styles/login.css";
+import "../styles/search.css";
 
 // icons imports
