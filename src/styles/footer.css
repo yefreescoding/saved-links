@@ -1,0 +1,21 @@
+.footer__wrap {
+  padding: 1rem;
+  width: min(100%, calc(var(--web-width) / 1.5));
+  margin: 0 auto;
+  flex-wrap: wrap;
+  gap: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  & > div {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.footer__links {
+  text-transform: capitalize;
+  margin-inline: 1rem;
+  display: flex;
+  gap: 1rem;
+}

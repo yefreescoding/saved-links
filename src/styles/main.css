@@ -1,5 +1,6 @@
 .main {
   width: min(100%, calc(var(--web-width) / 1.5));
+  min-height: calc(100dvh - 4.5rem);
   margin: 9vh auto;
   padding: 0.5rem;
 }
