@@ -85,3 +85,12 @@
   color: var(--clr-text-base-hover);
   background-color: var(--clr-bgk-base-hover);
 }
+
+@media (width < 30.4375em) {
+  .header__search {
+    background-color: transparent;
+    & > span {
+      display: none;
+    }
+  }
+}

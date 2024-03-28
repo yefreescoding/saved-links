@@ -89,12 +89,14 @@
     isolation: isolate;
     position: relative;
     display: flex;
+    gap: 1rem;
     justify-content: space-between;
     align-items: center;
     border-radius: var(--border-radius-comp);
     background-color: var(--clr-bgk);
     transition: background-color 120ms;
     & > div {
+      flex: 1;
       display: flex;
       flex-wrap: wrap;
       gap: calc(var(--_gap) / 2);
@@ -108,6 +110,7 @@
     }
 
     & h3 {
+      flex: auto;
       font-weight: 600;
     }
   }
