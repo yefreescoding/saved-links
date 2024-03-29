@@ -58,7 +58,7 @@ export function generateLinkHTML(link) {
             <span> ${link.shortedLink} </span>
           </div>
         </div>
-          <p>${link.timeSubmitted}</p>
+        <p>${link.timeSubmitted}</p>
       </a>
     </li>
   `;

@@ -1,5 +1,5 @@
 .footer__wrap {
-  font-size: clamp(0.8rem, 1.5vw, 1rem);
+  font-size: clamp(0.9rem, 1.5vw, 1rem);
   padding: 1rem;
   width: min(100%, calc(var(--web-width) / 1.5));
   margin: 0 auto;

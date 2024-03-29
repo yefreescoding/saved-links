@@ -98,19 +98,23 @@
     & > div {
       flex: 1;
       display: flex;
-      flex-wrap: wrap;
       gap: calc(var(--_gap) / 2);
+      overflow: hidden;
+
+      & svg {
+        flex-shrink: 0;
+      }
 
       & div {
         display: flex;
         align-items: center;
-        flex-wrap: wrap;
         gap: calc(var(--_gap) / 2);
       }
     }
 
     & h3 {
       flex: auto;
+      white-space: nowrap;
       font-weight: 600;
     }
   }
