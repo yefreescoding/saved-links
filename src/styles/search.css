@@ -1,6 +1,6 @@
 .search_dialog {
   position: absolute;
-  width: min(100% - 1rem, 90ch);
+  width: min(100%, 90ch);
   top: 15vh;
   margin: 0 auto;
   border: 1px solid var(--clr-accent-2);
@@ -12,8 +12,8 @@
 }
 
 .search_dialog::backdrop {
+  background-color: hsla(0, 0%, 2%, 0.7);
   backdrop-filter: blur(0.3rem);
-  /* opacity: 0.75; */
 }
 
 .search_dialog__header {
@@ -54,7 +54,7 @@
 }
 
 .search_results {
-  height: 100%;
+  height: fit-content;
   max-height: 40vh;
   overflow-y: scroll;
 }
