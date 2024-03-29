@@ -12,16 +12,24 @@ const closeButton = document.querySelector(".search_dialog button");
 
 showButton.addEventListener("click", () => {
   dialog.showModal();
+  document.body.style.overflow = "hidden";
 });
 
 closeButton.addEventListener("click", () => {
   dialog.close();
+  document.body.style.overflow = "";
 });
 
 window.addEventListener("keydown", (event) => {
   if ((event.metaKey || event.ctrlKey) && event.key === "k") {
     dialog.showModal();
-    console.log("Do something");
+    document.body.style.overflow = "hidden";
+  }
+});
+
+window.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    document.body.style.overflow = "";
   }
 });
 
