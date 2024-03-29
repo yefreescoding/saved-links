@@ -23,6 +23,7 @@
 
 .footer__actions {
   justify-content: center;
+  gap: 0.5rem;
 }
 
 .theme_toggle {
@@ -35,7 +36,7 @@
   color: var(--clr-text-base);
   border: 1px solid var(--clr-accent-2);
   padding: 0.5rem;
-  border-radius: var(--border-radius-comp);
+  border-radius: 50%;
   transition: all 120ms;
 }
 

@@ -10,6 +10,7 @@ import autoAnimate from "@formkit/auto-animate";
 
 import "./index.js";
 import "./search.js";
+import "./theme.js";
 
 const mainLinksContainer = document.getElementById("links-container");
 const formLinks = document.getElementById("form-link");

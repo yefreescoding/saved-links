@@ -27,7 +27,35 @@
     --clr-bgk-base-hover: hsl(0, 0%, 15%);
     --clr-accent: hsl(195, 53%, 79%);
     --clr-accent-2: hsl(0, 0%, 20%);
+
+    color-scheme: dark;
   }
+}
+
+html[data-theme="light"] {
+  --clr-bgk: hsl(0, 0%, 98%);
+  --clr-text-h: hsl(0, 0%, 20%);
+  --clr-text-h-hover: hsl(0, 0%, 10%);
+  --clr-text-base: hsl(0, 0%, 34%);
+  --clr-text-base-hover: hsl(0, 0%, 7%);
+  --clr-bgk-base: hsl(0, 0%, 90%);
+  --clr-bgk-base-hover: hsl(0, 0%, 94%);
+  --clr-accent: hsl(195, 53%, 89%);
+  --clr-accent-2: hsl(0, 0%, 80%);
+  color-scheme: light;
+}
+
+html[data-theme="dark"] {
+  --clr-bgk: hsl(0, 0%, 7%);
+  --clr-text-h: hsl(0, 0%, 90%);
+  --clr-text-h-hover: hsl(0, 0%, 70%);
+  --clr-text-base: hsl(0, 0%, 74%);
+  --clr-text-base-hover: hsl(0, 0%, 90%);
+  --clr-bgk-base: hsl(0, 0%, 3%);
+  --clr-bgk-base-hover: hsl(0, 0%, 15%);
+  --clr-accent: hsl(195, 53%, 79%);
+  --clr-accent-2: hsl(0, 0%, 20%);
+  color-scheme: dark;
 }
 
 body {
