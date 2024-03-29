@@ -29,9 +29,9 @@ export function generateLinkHTML(link) {
     <li class="main__link">
       <a href=${link.link} target="_blank">
         <div>
-          <?xml version="1.0" encoding="UTF-8"?><svg
-          width="27px"
-          height="27px"
+          <svg
+          width="25px"
+          height="25px"
           stroke-width="1.9"
           viewBox="0 0 24 24"
           fill="none"
@@ -58,8 +58,17 @@ export function generateLinkHTML(link) {
             <span> ${link.shortedLink} </span>
           </div>
         </div>
+        </a>
+        <div class="main__link_actions">
+          <button type="button" id="copy-link" aria-action="copy">
+            <svg width="20px" height="20px" stroke-width="1.2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" color="currentColor"><path d="M19.4 20H9.6C9.26863 20 9 19.7314 9 19.4V9.6C9 9.26863 9.26863 9 9.6 9H19.4C19.7314 9 20 9.26863 20 9.6V19.4C20 19.7314 19.7314 20 19.4 20Z" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"></path><path d="M15 9V4.6C15 4.26863 14.7314 4 14.4 4H4.6C4.26863 4 4 4.26863 4 4.6V14.4C4 14.7314 4.26863 15 4.6 15H9" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            Copy
+          </button>
+          <button type="button" id="erase-link" aria-action="erase" aria-label="button to erase links">
+            <svg width="20px" height="20px" viewBox="0 0 24 24" stroke-width="1.2" fill="none" xmlns="http://www.w3.org/2000/svg" color="currentColor"><path d="M20 9L18.005 20.3463C17.8369 21.3026 17.0062 22 16.0353 22H7.96474C6.99379 22 6.1631 21.3026 5.99496 20.3463L4 9" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"></path><path d="M21 6L15.375 6M3 6L8.625 6M8.625 6V4C8.625 2.89543 9.52043 2 10.625 2H13.375C14.4796 2 15.375 2.89543 15.375 4V6M8.625 6L15.375 6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          </button>
+        </div>
         <p>${link.timeSubmitted}</p>
-      </a>
     </li>
   `;
 }

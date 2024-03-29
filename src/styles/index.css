@@ -25,7 +25,7 @@
     --clr-text-base-hover: hsl(0, 0%, 90%);
     --clr-bgk-base: hsl(0, 0%, 3%);
     --clr-bgk-base-hover: hsl(0, 0%, 15%);
-    --clr-accent: hsl(195, 53%, 79%);
+    --clr-accent: hsl(195, 53%, 89%);
     --clr-accent-2: hsl(0, 0%, 20%);
 
     color-scheme: dark;
@@ -53,7 +53,7 @@ html[data-theme="dark"] {
   --clr-text-base-hover: hsl(0, 0%, 90%);
   --clr-bgk-base: hsl(0, 0%, 3%);
   --clr-bgk-base-hover: hsl(0, 0%, 15%);
-  --clr-accent: hsl(195, 53%, 79%);
+  --clr-accent: hsl(195, 53%, 89%);
   --clr-accent-2: hsl(0, 0%, 20%);
   color-scheme: dark;
 }

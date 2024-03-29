@@ -67,42 +67,39 @@
 .main__links {
   display: flex;
   flex-flow: column;
-  & svg {
-    transition: all 120ms linear;
-  }
-  & :hover svg {
-    transform: rotate(24deg);
-  }
 }
 
 .main__link {
+  --_gap: 1rem;
   opacity: 1;
   transform: translateY(0);
-}
+  display: flex;
+  justify-content: space-between;
+  font-size: clamp(0.8rem, 1.5vw, 1rem);
+  background-color: var(--clr-bgk);
+  align-items: center;
 
-.main__link {
-  --_gap: 0.8rem;
-  & a {
-    font-size: clamp(0.8rem, 1.5vw, 1rem);
-    overflow: hidden;
+  & > *:not(.main__link_actions) {
     padding: var(--_gap);
-    isolation: isolate;
-    position: relative;
+  }
+
+  & a {
+    flex: auto;
+    font-size: inherit;
     display: flex;
     gap: 1rem;
-    justify-content: space-between;
     align-items: center;
     border-radius: var(--border-radius-comp);
-    background-color: var(--clr-bgk);
     transition: background-color 120ms;
     & > div {
-      flex: 1;
+      flex: auto;
       display: flex;
       gap: calc(var(--_gap) / 2);
       overflow: hidden;
 
       & svg {
         flex-shrink: 0;
+        transition: all 120ms linear;
       }
 
       & div {
@@ -110,16 +107,64 @@
         align-items: center;
         gap: calc(var(--_gap) / 2);
       }
-    }
 
-    & h3 {
-      flex: auto;
-      white-space: nowrap;
-      font-weight: 600;
+      & h3 {
+        white-space: nowrap;
+        font-weight: 600;
+      }
     }
   }
 
-  & a:is(:hover, :focus) {
+  & .main__link_actions {
+    margin-right: var(--_gap);
+    width: fit-content;
+    display: none;
+    gap: 0.3rem;
+    justify-content: end;
+    z-index: 999;
+
+    & button {
+      display: flex;
+      align-items: center;
+      padding: 5px 8px;
+      border-radius: var(--border-radius-comp);
+      transition: all 120ms;
+      &:hover {
+        color: var(--clr-text-base-hover);
+        background-color: var(--clr-bgk-base-hover);
+      }
+    }
+
+    & button[aria-action="copy"] {
+      background-color: transparent;
+      color: var(--clr-text-base);
+      border: 1px solid var(--clr-text-base);
+      &:hover {
+        color: var(--clr-text-base-hover);
+        background-color: var(--clr-accent-2);
+      }
+    }
+
+    & button[aria-action="erase"] {
+      background-color: hsl(0, 100%, 90%);
+      color: hsl(0, 100%, 30%);
+      border: 1px solid hsl(0, 100%, 30%);
+      &:hover {
+        background-color: hsl(0, 97%, 75%);
+      }
+    }
+  }
+
+  &:is(:hover, :focus) {
     background-color: var(--clr-bgk-base-hover);
+    & .main__link_actions {
+      display: flex;
+    }
+    & p {
+      display: none;
+    }
+    & > div > svg {
+      transform: rotate(24deg);
+    }
   }
 }
