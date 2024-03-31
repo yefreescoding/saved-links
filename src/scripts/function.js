@@ -60,8 +60,9 @@ export function generateLinkHTML(link) {
         </div>
         </a>
         <div class="main__link_actions">
-          <button type="button" id="copy-link" aria-action="copy">
-            <svg width="20px" height="20px" stroke-width="1.2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" color="currentColor"><path d="M19.4 20H9.6C9.26863 20 9 19.7314 9 19.4V9.6C9 9.26863 9.26863 9 9.6 9H19.4C19.7314 9 20 9.26863 20 9.6V19.4C20 19.7314 19.7314 20 19.4 20Z" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"></path><path d="M15 9V4.6C15 4.26863 14.7314 4 14.4 4H4.6C4.26863 4 4 4.26863 4 4.6V14.4C4 14.7314 4.26863 15 4.6 15H9" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          <button type="button" id="copy-link" class="copy_link" aria-action="copy">
+            <svg class="copied_svg" width="20px" height="20px" stroke-width="1.2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" color="#000000"><path d="M1.5 12.5L5.57574 16.5757C5.81005 16.8101 6.18995 16.8101 6.42426 16.5757L9 14" stroke="#000000" stroke-width="1.2" stroke-linecap="round"></path><path d="M16 7L12 11" stroke="#000000" stroke-width="1.2" stroke-linecap="round"></path><path d="M7 12L11.5757 16.5757C11.8101 16.8101 12.1899 16.8101 12.4243 16.5757L22 7" stroke="#000000" stroke-width="1.2" stroke-linecap="round"></path></svg>
+            <svg class="copy_svg" width="20px" height="20px" stroke-width="1.2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" color="currentColor"><path d="M19.4 20H9.6C9.26863 20 9 19.7314 9 19.4V9.6C9 9.26863 9.26863 9 9.6 9H19.4C19.7314 9 20 9.26863 20 9.6V19.4C20 19.7314 19.7314 20 19.4 20Z" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"></path><path d="M15 9V4.6C15 4.26863 14.7314 4 14.4 4H4.6C4.26863 4 4 4.26863 4 4.6V14.4C4 14.7314 4.26863 15 4.6 15H9" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
             Copy
           </button>
           <button type="button" id="erase-link" aria-action="erase" aria-label="button to erase links">
@@ -77,4 +78,39 @@ export function generateLinkHTML(link) {
 export function addLinkToDOM(link, container) {
   const linkHTML = generateLinkHTML(link);
   container.insertAdjacentHTML("afterbegin", linkHTML);
+  attachEventListenersToButtons(document);
+}
+
+// Function to attach event listeners to copy and delete buttons
+export function attachEventListenersToButtons(container) {
+  // Select all copy buttons within the specified container
+  const copyLinksBtn = container.querySelectorAll(".copy_link");
+
+  copyLinksBtn.forEach((copyBtn) => {
+    copyBtn.addEventListener("click", () => {
+      // Get the <a> tag associated with the copy button
+      const anchor = copyBtn.closest("li").querySelector("a");
+      if (anchor) {
+        const url = anchor.getAttribute("href");
+
+        // Use the Clipboard API to copy the URL to the clipboard
+        navigator.clipboard
+          .writeText(url)
+          .then(() => {
+            console.log("URL copied to clipboard:", url);
+            // Optionally, you can provide visual feedback to the user
+            // copyBtn.textContent = "Copied!";
+            copyBtn.classList.add("copied");
+            setTimeout(() => {
+              // copyBtn.textContent = "Copy";
+              copyBtn.classList.remove("copied");
+            }, 1500);
+          })
+          .catch((error) => {
+            console.error("Failed to copy URL to clipboard:", error);
+            // Optionally, you can provide error feedback to the user
+          });
+      }
+    });
+  });
 }

@@ -116,6 +116,10 @@
   }
 
   & .main__link_actions {
+    --_color-success: hsl(121, 94%, 20%);
+    --_color-error: hsl(8, 95%, 40%);
+    --_color-bgk-success: hsl(107, 67%, 85%);
+    --_color-bgk-error: hsl(5, 64%, 88%);
     margin-right: var(--_gap);
     width: fit-content;
     display: none;
@@ -142,6 +146,22 @@
       &:hover {
         color: var(--clr-text-base-hover);
         background-color: var(--clr-accent-2);
+      }
+
+      & .copied_svg {
+        display: none;
+      }
+
+      &.copied {
+        color: var(--_color-success);
+        border: 1px solid var(--_color-success);
+        background-color: var(--_color-bgk-success);
+        & .copy_svg {
+          display: none;
+        }
+        & .copied_svg {
+          display: block;
+        }
       }
     }
 

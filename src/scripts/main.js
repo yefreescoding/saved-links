@@ -3,6 +3,7 @@ import {
   shortedUrl,
   displayLinks,
   addLinkToDOM,
+  attachEventListenersToButtons,
 } from "./function.js";
 import { getTitleFromUrl } from "./promises.js";
 import links from "../data/mock-links.json";
@@ -15,9 +16,12 @@ import "./theme.js";
 const mainLinksContainer = document.getElementById("links-container");
 const formLinks = document.getElementById("form-link");
 const linkNotify = document.getElementById("loading-message");
+const copyLinksBtn = document.querySelectorAll(".copy_link");
+
+displayLinks(links, mainLinksContainer);
 
 window.addEventListener("DOMContentLoaded", () => {
-  displayLinks(links, mainLinksContainer);
+  // displayLinks(links, mainLinksContainer);
 });
 
 formLinks.addEventListener("submit", (e) => {
@@ -50,6 +54,7 @@ async function createNewLink(url) {
 
     links.push(newLink);
     addLinkToDOM(newLink, mainLinksContainer);
+    // attachEventListenersToButtons(document, copyLinksBtn);
     console.log("New Object Created:", newLink);
   } catch (error) {
     console.error("Error creating the link", error);
@@ -57,3 +62,5 @@ async function createNewLink(url) {
 }
 
 autoAnimate(mainLinksContainer, { duration: 120 });
+
+attachEventListenersToButtons(document, copyLinksBtn);
