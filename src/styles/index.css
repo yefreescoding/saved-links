@@ -69,10 +69,10 @@ body {
 }
 
 .loading_message {
-  --color-success: hsl(121, 94%, 20%);
-  --color-error: hsl(8, 95%, 40%);
-  --color-bgk-success: hsl(107, 67%, 85%);
-  --color-bgk-error: hsl(5, 64%, 88%);
+  --_color-success: hsl(121, 94%, 20%);
+  --_color-error: hsl(8, 95%, 40%);
+  --_color-bgk-success: hsl(107, 67%, 85%);
+  --_color-bgk-error: hsl(5, 64%, 88%);
   position: relative;
   width: fit-content;
   padding: 0.5rem 0.9rem;

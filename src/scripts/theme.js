@@ -33,8 +33,6 @@ window.addEventListener("DOMContentLoaded", () => {
     theme = match[1];
   }
   setTheme(theme);
-  console.log(match);
-  console.log(match[1]);
 });
 
 function turnOffAnimations() {
