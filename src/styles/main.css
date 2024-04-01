@@ -74,44 +74,46 @@
   opacity: 1;
   transform: translateY(0);
   display: flex;
+  align-items: center;
   justify-content: space-between;
   font-size: clamp(0.8rem, 1.5vw, 1rem);
   background-color: var(--clr-bgk);
-  align-items: center;
+  border-radius: var(--border-radius-comp);
+  transition: background-color 120ms;
 
   & > *:not(.main__link_actions) {
     padding: var(--_gap);
   }
 
+  & div,
+  p {
+    padding: 0 3px;
+    /* flex: 1; */
+  }
+
   & a {
-    flex: auto;
+    flex: 1;
     font-size: inherit;
     display: flex;
-    gap: 1rem;
     align-items: center;
-    border-radius: var(--border-radius-comp);
-    transition: background-color 120ms;
-    & > div {
-      flex: auto;
+
+    gap: calc(var(--_gap) / 2);
+    overflow: hidden;
+
+    & svg {
+      flex-shrink: 0;
+      transition: all 120ms linear;
+    }
+
+    & div {
       display: flex;
+      align-items: center;
       gap: calc(var(--_gap) / 2);
-      overflow: hidden;
+    }
 
-      & svg {
-        flex-shrink: 0;
-        transition: all 120ms linear;
-      }
-
-      & div {
-        display: flex;
-        align-items: center;
-        gap: calc(var(--_gap) / 2);
-      }
-
-      & h3 {
-        white-space: nowrap;
-        font-weight: 600;
-      }
+    & h3 {
+      white-space: nowrap;
+      font-weight: 600;
     }
   }
 
@@ -120,6 +122,7 @@
     --_color-error: hsl(8, 95%, 40%);
     --_color-bgk-success: hsl(107, 67%, 85%);
     --_color-bgk-error: hsl(5, 64%, 88%);
+    background-color: var(--clr-bgk-base-hover);
     margin-right: var(--_gap);
     width: fit-content;
     display: none;
@@ -128,6 +131,7 @@
     z-index: 999;
 
     & button {
+      font-size: clamp(0.8rem, 1.5vw, 1rem);
       display: flex;
       align-items: center;
       padding: 5px 8px;
@@ -183,7 +187,7 @@
     & p {
       display: none;
     }
-    & > div > svg {
+    & > a > svg {
       transform: rotate(24deg);
     }
   }
