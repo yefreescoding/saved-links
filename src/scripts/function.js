@@ -83,34 +83,40 @@ export function addLinkToDOM(link, container) {
 
 // Function to attach event listeners to copy and delete buttons
 export function attachEventListenersToButtons(container) {
-  // Select all copy buttons within the specified container
   const copyLinksBtn = container.querySelectorAll(".copy_link");
 
   copyLinksBtn.forEach((copyBtn) => {
     copyBtn.addEventListener("click", () => {
-      // Get the <a> tag associated with the copy button
       const anchor = copyBtn.closest("li").querySelector("a");
       if (anchor) {
         const url = anchor.getAttribute("href");
 
-        // Use the Clipboard API to copy the URL to the clipboard
         navigator.clipboard
           .writeText(url)
           .then(() => {
             console.log("URL copied to clipboard:", url);
-            // Optionally, you can provide visual feedback to the user
-            // copyBtn.textContent = "Copied!";
+
             copyBtn.classList.add("copied");
             setTimeout(() => {
-              // copyBtn.textContent = "Copy";
               copyBtn.classList.remove("copied");
             }, 1500);
           })
           .catch((error) => {
             console.error("Failed to copy URL to clipboard:", error);
-            // Optionally, you can provide error feedback to the user
           });
       }
     });
   });
+}
+
+export function notificationStyles(nodeComp, state, message) {
+  if (state) {
+    nodeComp.setAttribute("aria-hidden", "false");
+    nodeComp.setAttribute("data-error", "false");
+    nodeComp.innerText = message;
+  } else {
+    nodeComp.setAttribute("aria-hidden", "false");
+    nodeComp.setAttribute("data-error", "true");
+    nodeComp.innerText = message;
+  }
 }

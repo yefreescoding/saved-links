@@ -1,9 +1,11 @@
 import dataLinks from "../data/mock-links.json";
-import { generateLinkHTML } from "./function";
+import { generateLinkHTML, attachEventListenersToButtons } from "./function";
 
 const dialog = document.querySelector(".search_dialog");
 const showButton = document.querySelector("#search-btn");
 const closeButton = document.querySelector(".search_dialog button");
+const searchInput = document.getElementById("search-input");
+const form = document.getElementById("search-form");
 
 showButton.addEventListener("click", () => {
   dialog.showModal();
@@ -26,7 +28,6 @@ window.addEventListener("keydown", (event) => {
   }
 });
 
-// Function to perform search
 function search(query, arr) {
   const searchResults = document.getElementById("searchResults");
   searchResults.innerHTML = "";
@@ -42,16 +43,15 @@ function search(query, arr) {
       const li = document.createElement("li");
       li.innerHTML = generateLinkHTML(item);
       searchResults.appendChild(li);
+      attachEventListenersToButtons(searchResults);
     });
   } else {
     const li = document.createElement("li");
-    li.innerHTML = `<li class="main__link"><strong>No matches</strong></li>`;
+    li.innerHTML = `<li class="main__link no_results">No results for <strong>"${query}"</strong></li>`;
     searchResults.appendChild(li);
   }
 }
 
-const searchInput = document.getElementById("search-input");
-const form = document.getElementById("search-form");
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   searchInput.value = "";

@@ -187,4 +187,13 @@
       transform: rotate(24deg);
     }
   }
+
+  &.no_results {
+    font-size: clamp(1rem, 1.4vw, 1.2rem);
+    width: fit-content;
+    margin: auto;
+  }
+  &.no_results:hover {
+    background-color: transparent;
+  }
 }
