@@ -1,11 +1,12 @@
-import dataLinks from "../data/mock-links.json";
 import { generateLinkHTML, attachEventListenersToButtons } from "./function";
+
+import { data } from "../data/globalVariables.js";
 
 const dialog = document.querySelector(".search_dialog");
 const showButton = document.querySelector("#search-btn");
 const closeButton = document.querySelector(".search_dialog button");
 const searchInput = document.getElementById("search-input");
-const form = document.getElementById("search-form");
+const formSearch = document.getElementById("search-form");
 
 showButton.addEventListener("click", () => {
   dialog.showModal();
@@ -28,7 +29,7 @@ window.addEventListener("keydown", (event) => {
   }
 });
 
-function search(query, arr) {
+export function search(query, arr) {
   const searchResults = document.getElementById("searchResults");
   searchResults.innerHTML = "";
 
@@ -43,7 +44,7 @@ function search(query, arr) {
       const li = document.createElement("li");
       li.innerHTML = generateLinkHTML(item);
       searchResults.appendChild(li);
-      attachEventListenersToButtons(searchResults);
+      attachEventListenersToButtons(searchResults, arr);
     });
   } else {
     const li = document.createElement("li");
@@ -52,12 +53,14 @@ function search(query, arr) {
   }
 }
 
-form.addEventListener("submit", (e) => {
+// const searchInput = document.getElementById("search-input");
+
+formSearch.addEventListener("submit", (e) => {
   e.preventDefault();
   searchInput.value = "";
 });
 
 searchInput.addEventListener("input", () => {
   const query = searchInput.value.trim();
-  search(query, dataLinks);
+  search(query, data);
 });

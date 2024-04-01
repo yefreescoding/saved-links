@@ -1,6 +1,7 @@
 import { displayLinks, attachEventListenersToButtons } from "./function.js";
 import { createNewLink } from "./promises.js";
-import links from "../data/mock-links.json";
+import { data } from "../data/globalVariables.js";
+import { search } from "./search.js";
 import autoAnimate from "@formkit/auto-animate";
 
 import "./index.js";
@@ -10,9 +11,8 @@ import "./theme.js";
 const mainLinksContainer = document.getElementById("links-container");
 const formLinks = document.getElementById("form-link");
 const linkNotify = document.getElementById("loading-message");
-const copyLinksBtn = document.querySelectorAll(".copy_link");
 
-displayLinks(links, mainLinksContainer);
+displayLinks(data, mainLinksContainer);
 
 formLinks.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -20,7 +20,7 @@ formLinks.addEventListener("submit", (e) => {
 
   let linkValue = formLinks.querySelector("#user-link").value;
 
-  createNewLink(linkValue, links, linkNotify, mainLinksContainer);
+  createNewLink(linkValue, data, linkNotify, mainLinksContainer);
 
   setTimeout(() => {
     linkNotify.setAttribute("aria-hidden", "true");
@@ -29,6 +29,8 @@ formLinks.addEventListener("submit", (e) => {
   formLinks.querySelector("#user-link").value = "";
 });
 
+// Animate the ul every time a new link is added
 autoAnimate(mainLinksContainer, { duration: 120 });
 
-attachEventListenersToButtons(document, copyLinksBtn);
+// Attach eventListeners to new dynamically add buttons.
+attachEventListenersToButtons(document, data);

@@ -38,21 +38,8 @@ export async function createNewLink(url, arr, nodeComp, nodeContainerComp) {
     };
 
     arr.push(newLink);
-    addLinkToDOM(newLink, nodeContainerComp);
-    // console.log("New Object Created:", newLink);
+    addLinkToDOM(newLink, nodeContainerComp, arr);
   } catch (error) {
     console.error("Error creating the link", error);
   }
 }
-
-// function notificationStyles(nodeComp, state, message) {
-//   if (state) {
-//     nodeComp.setAttribute("aria-hidden", "false");
-//     nodeComp.setAttribute("data-error", "false");
-//     nodeComp.innerText = message;
-//   } else {
-//     nodeComp.setAttribute("aria-hidden", "false");
-//     nodeComp.setAttribute("data-error", "true");
-//     nodeComp.innerText = message;
-//   }
-// }

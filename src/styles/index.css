@@ -3,7 +3,7 @@
 :root {
   --font: "Assistant", sans-serif;
 
-  --clr-bgk: hsl(0, 0%, 98%);
+  --clr-bgk: hsl(0, 0%, 99%);
   --clr-text-h: hsl(0, 0%, 20%);
   --clr-text-h-hover: hsl(0, 0%, 10%);
   --clr-text-base: hsl(0, 0%, 34%);
@@ -33,7 +33,7 @@
 }
 
 html[data-theme="light"] {
-  --clr-bgk: hsl(0, 0%, 98%);
+  --clr-bgk: hsl(0, 0%, 99%);
   --clr-text-h: hsl(0, 0%, 20%);
   --clr-text-h-hover: hsl(0, 0%, 10%);
   --clr-text-base: hsl(0, 0%, 34%);
