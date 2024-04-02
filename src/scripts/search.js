@@ -42,7 +42,6 @@ export function search(query, data) {
       const li = document.createElement("li");
       li.innerHTML = generateLinkHTML(item);
       searchResults.appendChild(li);
-      console.log("Data inside search if function: ", data);
       attachEventListenersToButtons(searchResults, data);
     });
   } else {
