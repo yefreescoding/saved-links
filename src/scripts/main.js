@@ -1,4 +1,4 @@
-import { attachEventListenersToButtons } from "./function.js";
+import { attachEventListenersToButtons, displayLinks } from "./function.js";
 import { search } from "./search.js";
 import { createNewLink } from "./promises.js";
 // import { data } from "../data/globalVariables.js";
@@ -18,6 +18,13 @@ const formSearch = document.getElementById("search-form");
 // console.log(data);
 
 export let data = [];
+
+(() => {
+  data = JSON.parse(localStorage.getItem("data")) || [];
+  console.log(data);
+  displayLinks(data, mainLinksContainer);
+  attachEventListenersToButtons(document, data);
+})();
 
 formSearch.addEventListener("submit", (e) => {
   e.preventDefault();
