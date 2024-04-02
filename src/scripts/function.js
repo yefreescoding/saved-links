@@ -1,3 +1,5 @@
+// import { data } from "./main";
+
 export function formatDate(date) {
   const options = { weekday: "short", month: "short", day: "numeric" };
   return date.toLocaleString("en-US", options);
@@ -15,18 +17,17 @@ export function shortedUrl(url) {
 }
 
 export function displayLinks(arr, container) {
-  let allLinks = arr.map((link) => {
-    return generateLinkHTML(link);
+  let allLinks = arr.map((link, key) => {
+    return generateLinkHTML(link, key);
   });
 
   allLinks = allLinks.reverse().join("");
   container.innerHTML = allLinks;
 }
 
-// Function to generate HTML for a single link component
 export function generateLinkHTML(link) {
   return `
-    <li class="main__link" data-link-id="${link.id}">
+    <li data-key="${link.key}" class="main__link" data-link-id="${link.id}">
       <a  href=${link.link} target="_blank">
         <svg
         width="25px"
@@ -63,7 +64,7 @@ export function generateLinkHTML(link) {
           <svg class="copy_svg" width="20px" height="20px" stroke-width="1.2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" color="currentColor"><path d="M19.4 20H9.6C9.26863 20 9 19.7314 9 19.4V9.6C9 9.26863 9.26863 9 9.6 9H19.4C19.7314 9 20 9.26863 20 9.6V19.4C20 19.7314 19.7314 20 19.4 20Z" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"></path><path d="M15 9V4.6C15 4.26863 14.7314 4 14.4 4H4.6C4.26863 4 4 4.26863 4 4.6V14.4C4 14.7314 4.26863 15 4.6 15H9" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
           Copy
         </button>
-        <button data-link-id=${link.id} class="erase_link" type="button" id="erase-link" aria-action="erase" aria-label="button to erase links">
+        <button data-link-id=${link.id} data-key="${link.key}" class="erase_link" type="button" id="erase-link" aria-action="erase" aria-label="button to erase links">
           <svg width="16px" height="16px" viewBox="0 0 24 24" stroke-width="1.2" fill="none" xmlns="http://www.w3.org/2000/svg" color="currentColor"><path d="M20 9L18.005 20.3463C17.8369 21.3026 17.0062 22 16.0353 22H7.96474C6.99379 22 6.1631 21.3026 5.99496 20.3463L4 9" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"></path><path d="M21 6L15.375 6M3 6L8.625 6M8.625 6V4C8.625 2.89543 9.52043 2 10.625 2H13.375C14.4796 2 15.375 2.89543 15.375 4V6M8.625 6L15.375 6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
         </button>
       </div>
@@ -73,37 +74,27 @@ export function generateLinkHTML(link) {
 }
 
 // Function to add a new link to the DOM
-export function addLinkToDOM(link, container, data) {
+export function addLinkToDOM(link, container) {
   const linkHTML = generateLinkHTML(link);
   container.insertAdjacentHTML("afterbegin", linkHTML);
-  attachEventListenersToButtons(document, data);
 }
-export function removeLinkFromDOM(id) {
+function removeLinkFromDOM(id) {
   const listItemToRemove = document.querySelector(
-    `.main__link[data-link-id="${id}"]`
+    `.main__link[data-key="${id}"]`
   );
   if (listItemToRemove) {
     listItemToRemove.remove();
+  } else {
+    console.log("not found");
   }
 }
 
-function deleteExistingLink(id, arr) {
-  let newLinksArr = arr.filter((link) => {
-    return link.id !== id;
-  });
-
-  return newLinksArr;
+function deleteExistingLink(key, data) {
+  data.splice(key, 1);
+  console.log(key);
+  localStorage.setItem("data", JSON.stringify(data));
+  console.log("Data inside deleteExisting function: ", data);
 }
-
-// export function deleteExistingLink(id, arr) {
-//   const index = arr.findIndex((link) => link.id === id);
-//   if (index !== -1) {
-//     arr.splice(index, 1);
-//     console.log("Link deleted:", id);
-//   } else {
-//     console.log("Link not found:", id);
-//   }
-// }
 
 // Function to attach event listeners to copy and delete buttons
 export function attachEventListenersToButtons(container, data) {
@@ -135,15 +126,15 @@ export function attachEventListenersToButtons(container, data) {
 
   eraseLinksBtn.forEach((button) => {
     button.addEventListener("click", () => {
-      const linkId = button.getAttribute("data-link-id");
+      const linkId = parseInt(button.getAttribute("data-key"));
 
-      data = deleteExistingLink(linkId, data);
       removeLinkFromDOM(linkId);
-      // console.log("Array inside delete function: ", data);
+      deleteExistingLink(linkId, data);
+      console.log("Data inside remove function: ", data);
     });
   });
 
-  console.log("Array inside attachEvent function: ", data);
+  console.log("Data inside attach function: ", data);
 }
 
 export function notificationStyles(nodeComp, state, message) {

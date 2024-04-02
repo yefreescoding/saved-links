@@ -1,3 +1,3 @@
-import dataJson from "./mock-links.json";
+// import dataJson from "./mock-links.json";
 
-export const data = dataJson;
+export let data = [];

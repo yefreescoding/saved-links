@@ -1,12 +1,10 @@
 import { generateLinkHTML, attachEventListenersToButtons } from "./function";
 
-import { data } from "../data/globalVariables.js";
+// import { data } from "../data/globalVariables.js";
 
 const dialog = document.querySelector(".search_dialog");
 const showButton = document.querySelector("#search-btn");
 const closeButton = document.querySelector(".search_dialog button");
-const searchInput = document.getElementById("search-input");
-const formSearch = document.getElementById("search-form");
 
 showButton.addEventListener("click", () => {
   dialog.showModal();
@@ -29,11 +27,11 @@ window.addEventListener("keydown", (event) => {
   }
 });
 
-export function search(query, arr) {
+export function search(query, data) {
   const searchResults = document.getElementById("searchResults");
   searchResults.innerHTML = "";
 
-  const filteredData = arr.filter(
+  const filteredData = data.filter(
     (item) =>
       item.title.toLowerCase().includes(query.toLowerCase()) ||
       item.link.toLowerCase().includes(query.toLowerCase())
@@ -44,23 +42,26 @@ export function search(query, arr) {
       const li = document.createElement("li");
       li.innerHTML = generateLinkHTML(item);
       searchResults.appendChild(li);
-      attachEventListenersToButtons(searchResults, arr);
+      console.log("Data inside search if function: ", data);
+      attachEventListenersToButtons(searchResults, data);
     });
   } else {
     const li = document.createElement("li");
     li.innerHTML = `<li class="main__link no_results">No results for <strong>"${query}"</strong></li>`;
     searchResults.appendChild(li);
   }
+
+  console.log("Data inside search function: ", data);
 }
 
 // const searchInput = document.getElementById("search-input");
 
-formSearch.addEventListener("submit", (e) => {
-  e.preventDefault();
-  searchInput.value = "";
-});
+// formSearch.addEventListener("submit", (e) => {
+//   e.preventDefault();
+//   searchInput.value = "";
+// });
 
-searchInput.addEventListener("input", () => {
-  const query = searchInput.value.trim();
-  search(query, data);
-});
+// searchInput.addEventListener("input", () => {
+//   const query = searchInput.value.trim();
+//   search(query, data);
+// });
