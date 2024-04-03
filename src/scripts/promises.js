@@ -3,7 +3,6 @@ import {
   shortedUrl,
   addLinkToDOM,
   notificationStyles,
-  attachEventListenersToButtons,
 } from "./function.js";
 
 export async function createNewLink(url, data, nodeComp, nodeContainerComp) {
@@ -37,10 +36,14 @@ export async function getTitleFromUrl(url, nodeComp) {
 
     const titleElement = tempDiv.querySelector("title");
 
-    notificationStyles(nodeComp, true, "Link title successfully saved");
+    notificationStyles(nodeComp, true, "Link successfully saved");
     return titleElement ? titleElement.textContent.trim() : "Untitled";
   } catch (error) {
-    notificationStyles(nodeComp, false, "Could not ge the web title");
+    notificationStyles(
+      nodeComp,
+      false,
+      "Link successfully saved! but could not get the title"
+    );
     console.error("Error fetching title:", error);
     return "error";
   }

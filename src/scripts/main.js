@@ -44,7 +44,7 @@ formLinks.addEventListener("submit", (e) => {
 
   setTimeout(() => {
     linkNotify.setAttribute("aria-hidden", "true");
-  }, "2500");
+  }, "3000");
 });
 
 const formValidation = async () => {
