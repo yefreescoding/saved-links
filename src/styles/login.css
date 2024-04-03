@@ -19,7 +19,7 @@
   & > p {
     text-align: center;
 
-    font-size: clamp(1.5rem, 2vw, 3rem);
+    font-size: clamp(1.5rem, 1.92vw, 2.5rem);
   }
 }
 

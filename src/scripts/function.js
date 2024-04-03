@@ -134,6 +134,10 @@ export function attachEventListenersToButtons(container, data) {
       console.log(linkId);
       removeLinkFromDOM(linkId);
       deleteExistingLink(linkId, data);
+
+      setTimeout(() => {
+        location.reload();
+      }, "1500");
       console.log("Data inside remove function: ", data);
     });
   });
