@@ -19,11 +19,11 @@
 }
 
 .header__links {
-  --_gap: 0.5rem;
+  --_gap: 0.1rem;
 
   & li {
     position: relative;
-    padding-inline: calc(var(--_gap) / 2);
+    padding-inline: calc(var(--_gap) / 2.5);
     /* background-color: lightblue; */
   }
 
