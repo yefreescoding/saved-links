@@ -9,14 +9,48 @@
   font-size: clamp(0.989rem, 1.5vw, 1rem);
   width: 100%;
   display: flex;
-  align-items: center;
+  flex-flow: column;
+  padding: 0.5rem;
   margin: 1rem 0;
   box-shadow: 0 15px 16px var(--clr-bgk-base);
   outline: 1px solid var(--clr-accent-2);
   border-radius: var(--border-radius-comp);
   background-color: hsl(0, 0%, 7%);
   transition: all 140ms linear;
-  padding: 1rem;
+
+  & .main__form_input {
+    display: flex;
+    align-items: center;
+  }
+
+  & .main__form_actions {
+    margin-top: 1.5rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 15em), 1fr));
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+
+    /* background-color: red; */
+    & a {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      /* gap: 1.5rem; */
+      padding: 0.5rem;
+      color: hsl(0, 0%, 97%) !important;
+      /* border: 1px solid var(--clr-accent-2); */
+      white-space: nowrap;
+      border-radius: 0.6rem;
+      background-color: hsl(0, 0%, 20%);
+
+      & div {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+    }
+  }
 
   & input {
     flex: 2;
