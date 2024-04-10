@@ -11,22 +11,27 @@
   display: flex;
   align-items: center;
   margin: 1rem 0;
-  border: transparent;
+  box-shadow: 0 15px 16px var(--clr-bgk-base);
   outline: 1px solid var(--clr-accent-2);
   border-radius: var(--border-radius-comp);
+  background-color: hsl(0, 0%, 7%);
   transition: all 140ms linear;
+  padding: 1rem;
 
   & input {
     flex: 2;
     flex-shrink: 1;
     padding: 0.8rem 0.5rem;
-    color: var(--clr-text-h);
+    color: hsl(0, 0%, 97%);
     background-color: transparent;
     border: none;
   }
 
   & input:focus {
     outline: none;
+  }
+  & input::placeholder {
+    color: hsl(0, 0%, 97%);
   }
 
   & button {
@@ -40,7 +45,7 @@
   }
 
   & button:hover {
-    color: var(--clr-text-base-hover);
+    color: var(--clr-bgk);
   }
 }
 
@@ -48,16 +53,14 @@
   outline-offset: 3px;
   color: var(--clr-text-base-hover);
   outline: 1px solid var(--clr-text-base);
-  background-color: var(--clr-bgk-base);
 }
 
 .main__form[data-error="true"] {
   outline-offset: 3px;
-  color: hsl(0, 100%, 40%);
-  outline: 1px solid hsl(0, 100%, 40%);
-  background-color: hsl(0, 100%, 90%);
+  outline: 3px solid hsl(0, 100%, 40%);
   & input::placeholder {
-    color: hsl(0, 100%, 30%);
+    text-transform: uppercase;
+    color: hsl(0, 100%, 95%);
   }
 }
 
@@ -90,6 +93,19 @@
   background-color: var(--clr-bgk);
   border-radius: var(--border-radius-comp);
   transition: background-color 120ms;
+
+  &:is(:hover, :focus) {
+    background-color: var(--clr-bgk-base-hover);
+    & .main__link_actions {
+      display: flex;
+    }
+    & p {
+      display: none;
+    }
+    & > a > svg {
+      transform: rotate(24deg);
+    }
+  }
 
   & > *:not(.main__link_actions) {
     padding: var(--_gap);
@@ -186,19 +202,6 @@
       &:hover {
         background-color: hsl(0, 97%, 75%);
       }
-    }
-  }
-
-  &:is(:hover, :focus) {
-    background-color: var(--clr-bgk-base-hover);
-    & .main__link_actions {
-      display: flex;
-    }
-    & p {
-      display: none;
-    }
-    & > a > svg {
-      transform: rotate(24deg);
     }
   }
 
