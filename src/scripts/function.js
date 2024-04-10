@@ -14,6 +14,22 @@ export function shortedUrl(url) {
   return hostname;
 }
 
+export function createTitle(url) {
+  // Check if the URL is a valid YouTube channel URL
+  const regex =
+    /^(https?:\/\/)?(www\.)?youtube\.com\/(user\/|channel\/|c\/)([^/?]+)/;
+
+  const match = url.match(regex);
+
+  // If the URL matches the pattern, extract the channel name
+  if (match && match[4]) {
+    return "Youtube Channel " + match[4];
+  } else {
+    console.error("Not a valid YouTube channel URL");
+    return shortedUrl(url);
+  }
+}
+
 export function displayLinks(arr, container) {
   let allLinks = arr.map((link, key) => {
     return generateLinkHTML(link, key);
@@ -28,7 +44,7 @@ export function generateLinkHTML(link) {
     <li data-key="${link.key}" class="main__link" data-link-id="${link.id}">
       <a  href=${link.link} target="_blank">
       ${
-        !link
+        link.siteType === "website"
           ? `<svg
             width="25px"
             height="25px"

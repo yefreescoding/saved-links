@@ -1,4 +1,8 @@
-import { attachEventListenersToButtons, displayLinks } from "./function.js";
+import {
+  attachEventListenersToButtons,
+  displayLinks,
+  createTitle,
+} from "./function.js";
 import { search } from "./search.js";
 import { createNewLink } from "./promises.js";
 // import { data } from "../data/globalVariables.js";
@@ -84,3 +88,5 @@ if (navigator.userAgent.indexOf("iPhone") > -1) {
       "width=device-width, initial-scale=1, maximum-scale=1"
     );
 }
+
+console.log(createTitle("https://www.youtube.com/@juliafei"));

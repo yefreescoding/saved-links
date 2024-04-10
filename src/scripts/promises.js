@@ -3,6 +3,7 @@ import {
   shortedUrl,
   addLinkToDOM,
   notificationStyles,
+  createTitle,
 } from "./function.js";
 
 export async function createNewLink(url, data, nodeComp, nodeContainerComp) {
@@ -12,10 +13,11 @@ export async function createNewLink(url, data, nodeComp, nodeContainerComp) {
     const newLink = {
       key: data.length,
       id: uuid,
-      title: title === "error" ? shortedUrl(url) : title,
+      title: title === "error" ? createTitle(url) : title,
       shortedLink: shortedUrl(url),
       link: url,
       timeSubmitted: formatDate(new Date()),
+      siteType: "website",
     };
     addLinkToDOM(newLink, nodeContainerComp, data);
 
