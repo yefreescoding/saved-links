@@ -36,13 +36,13 @@ export async function getTitleFromUrl(url, nodeComp) {
 
     const titleElement = tempDiv.querySelector("title");
 
-    notificationStyles(nodeComp, true, "Link successfully saved");
+    notificationStyles(nodeComp, true, "Link has been added to your list.");
     return titleElement ? titleElement.textContent.trim() : "Untitled";
   } catch (error) {
     notificationStyles(
       nodeComp,
       false,
-      "Link successfully saved! but could not get the title"
+      "Link added, but there was an error getting the title."
     );
     console.error("Error fetching title:", error);
     return "error";

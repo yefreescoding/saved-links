@@ -69,36 +69,39 @@ body {
 }
 
 .loading_message {
-  --_color-success: hsl(121, 94%, 20%);
-  --_color-error: hsl(8, 95%, 40%);
-  --_color-bgk-success: hsl(107, 67%, 85%);
-  --_color-bgk-error: hsl(5, 64%, 88%);
-  position: relative;
+  --_color-success: hsl(121, 94%, 10%);
+  --_color-error: hsl(8, 95%, 20%);
+  --_color-bgk-success: hsl(107, 67%, 95%);
+  --_color-bgk-error: hsl(5, 64%, 95%);
+  position: fixed;
+  z-index: 9999;
+  inset: auto 1rem 1rem auto;
   width: fit-content;
   padding: 0.5rem 0.9rem;
   margin: 1rem auto;
   font-weight: 600;
-  border: 1px solid var(--_color-success);
-  border-radius: 1.3rem;
-  color: var(--_color-success);
-  background-color: var(--_color-bgk-success);
+  border-radius: 0.5rem;
 
   /* transition animations */
-  transition: opacity 100ms linear, scale 240ms ease-in-out,
-    transform 360ms ease;
-  transform: scale(0.9, 0.9) translateY(-100%);
+  transform: translateY(100%);
   display: hidden;
   opacity: 0;
+  transition: opacity 100ms linear, transform 360ms ease;
 }
 
 .loading_message[aria-hidden="false"] {
-  transform: scale(1, 1) translateY(0);
+  transform: translateY(0);
   display: block;
   opacity: 1;
+  box-shadow: 0 0 16px var(--_color-bgk-success);
+  border: 0.5px solid var(--_color-success);
+  color: var(--_color-success);
+  background-color: var(--_color-bgk-success);
 }
 
 .loading_message[data-error="true"] {
-  border: 1px solid var(--_color-error);
+  box-shadow: 0 0 16px var(--_color-bgk-error);
+  border: 0.5px solid var(--_color-error);
   color: var(--_color-error);
   background-color: var(--_color-bgk-error);
 }
