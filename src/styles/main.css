@@ -175,6 +175,7 @@
     & h3 {
       white-space: nowrap;
       font-weight: 600;
+      text-transform: capitalize;
     }
   }
 
@@ -207,7 +208,8 @@
     & button[aria-action="copy"] {
       background-color: transparent;
       color: var(--clr-text-base);
-      border: 1px solid var(--clr-text-base);
+      /* border: 1px solid var(--clr-text-base); */
+      border: none;
       &:hover {
         color: var(--clr-text-base-hover);
         background-color: var(--clr-accent-2);
@@ -219,7 +221,7 @@
 
       &.copied {
         color: var(--_color-success);
-        border: 1px solid var(--_color-success);
+        /* border: 1px solid var(--_color-success); */
         background-color: var(--_color-bgk-success);
         & .copy_svg {
           display: none;
@@ -233,7 +235,8 @@
     & button[aria-action="erase"] {
       background-color: hsl(0, 100%, 90%);
       color: hsl(0, 100%, 30%);
-      border: 1px solid hsl(0, 100%, 30%);
+      /* border: 1px solid hsl(0, 100%, 30%); */
+      border: none;
       &:hover {
         background-color: hsl(0, 97%, 75%);
       }

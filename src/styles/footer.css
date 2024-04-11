@@ -1,25 +1,32 @@
-.footer__wrap {
+.footer {
   position: fixed;
   inset: auto 0 0 0;
   z-index: 99999;
-  font-size: clamp(0.9rem, 1.5vw, 1rem);
-  padding: 1rem;
-  width: min(100%, calc(var(--web-width) / 1.5));
+  padding: 0.5rem;
+}
+
+.footer__wrap {
+  /* font-size: clamp(0.8rem, 1.5vw, 1rem); */
+  width: min(100%, calc(var(--web-width) / 1.2));
   margin: 0 auto;
+  font-size: 0.8rem;
   display: flex;
-  flex-wrap: wrap;
   gap: 1rem;
-  align-items: center;
+  flex-wrap: wrap;
   justify-content: space-between;
   background-image: linear-gradient(
     from bottom,
     var(--clr-bgk),
     var(--clr-bgk) 90%
   );
+  /* background-color: lightblue; */
   backdrop-filter: blur(3px);
   & > div {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
+    width: 100%;
+    flex: 1;
   }
 }
 
@@ -27,11 +34,12 @@
   text-transform: capitalize;
   margin-inline: 1rem;
   display: flex;
-  gap: 0.5rem;
+  justify-content: start;
+  gap: 0.3rem;
 }
 
 .footer__actions {
-  justify-content: center;
+  justify-content: end;
   gap: 0.5rem;
 }
 

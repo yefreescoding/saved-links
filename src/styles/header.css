@@ -1,7 +1,7 @@
 .header {
   padding: 0.5rem;
-  /* box-shadow: 0 1.3rem 1.5rem var(--clr-bgk-base); */
   background-color: var(--clr-bgk);
+  z-index: 9999999;
 }
 
 .header__nav,
@@ -14,10 +14,9 @@
 }
 
 .header__nav {
-  justify-content: space-between;
-  width: min(100%, var(--web-width));
+  width: min(100%, calc(var(--web-width) / 1.5));
   margin: 0 auto;
-  z-index: 9999999;
+  justify-content: space-between;
 }
 
 .header__links {

@@ -26,7 +26,24 @@ export function createTitle(url) {
     return "Youtube Channel " + match[4];
   } else {
     console.error("Not a valid YouTube channel URL");
-    return shortedUrl(url);
+    return getWebsiteName(url);
+  }
+}
+
+export function getWebsiteName(url) {
+  try {
+    let hostname = new URL(url).hostname;
+
+    if (hostname.startsWith("www.")) {
+      hostname = hostname.slice(4);
+    }
+
+    let name = hostname.split(".")[0]; // Assuming the name is the first part of the hostname
+
+    return name;
+  } catch (error) {
+    console.error("Error:", error);
+    return "Unknown";
   }
 }
 

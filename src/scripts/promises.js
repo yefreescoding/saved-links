@@ -44,7 +44,7 @@ export async function getTitleFromUrl(url, nodeComp) {
     notificationStyles(
       nodeComp,
       false,
-      "Link added, but there was an error getting the title."
+      "Link added. We couldn't get the original title."
     );
     console.error("Error fetching title:", error);
     return "error";
