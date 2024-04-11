@@ -19,8 +19,8 @@
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 72 72"
-                  width="32px"
-                  height="32px"
+                  width="28px"
+                  height="28px"
                   color="currentColor"
                 >
                   <path
@@ -38,8 +38,8 @@
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 48 48"
-                  width="32px"
-                  height="32px"
+                  width="28px"
+                  height="28px"
                 >
                   <path
                     fill="#03A9F4"
@@ -56,8 +56,8 @@
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 48 48"
-                  width="32px"
-                  height="32px"
+                  width="28px"
+                  height="28px"
                 >
                   <radialGradient
                     id="La9SoowKGoEUHOnYdJMSEa"
@@ -90,8 +90,8 @@
                 aria-label="link to buy me a coffee website"
               >
                 <svg
-                  width="30"
-                  height="30"
+                  width="28px"
+                  height="28px"
                   viewBox="0 0 884 1279"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
@@ -156,7 +156,7 @@
               </a>
             </li>
           </ul>
-          <a href="/"> Go to the app </a>
+          <a href="/"> App </a>
         </nav>
       </header>
       <main class="main_login">
@@ -165,30 +165,95 @@
         <p>A Minimalist, Easy and Simple approach.</p>
         <div id="links-carrousel" class="links_carrousel_cont"></div>
         <section id="dropdown" class="dropdown">
-          <button id="dropdown-btn" class="dropdown__label">
-            <span> Know more about </span>
-            <div>
-              click here
-              <svg
-                width="20px"
-                height="20px"
-                stroke-width="1.2"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                color="currentColor"
-              >
-                <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
-                  d="M19.5027 9.96958C20.7073 10.4588 20.6154 12.1941 19.3658 12.5533L13.0605 14.3658L10.1807 20.2606C9.60996 21.4288 7.88499 21.218 7.6124 19.9468L4.67677 6.25646C4.44638 5.18204 5.5121 4.2878 6.53019 4.70126L19.5027 9.96958Z"
-                  stroke="currentColor"
-                  stroke-width="1.2"
-                ></path>
-              </svg>
+          <div class="dropdown__label">
+            <a href="/">
+              <div>Click here and start saving your links...</div>
+            </a>
+            <div class="scroller" data-animated="">
+              <div class="main__form_actions">
+                <a href="">
+                  <img src="/public/website-icon.svg" alt="" />
+                  <p>
+                    <strong> Your Career in Web Dev... </strong>
+                    theodinproject.com
+                  </p>
+                </a>
+                <a href="">
+                  <img src="/public/website-icon.svg" alt="" />
+                  <p><strong>Vercel</strong> vercel.com</p>
+                </a>
+                <a href="">
+                  <img src="/public/youtube-icon.svg" alt="" />
+                  <p><strong>@MrBeast</strong> youtube.com</p>
+                </a>
+                <a href="">
+                  <img src="/public/website-icon.svg" alt="" />
+                  <p><strong>Raycast</strong> raycast.com</p>
+                </a>
+                <a href="">
+                  <img src="/public/twitter-icon.svg" alt="" />
+                  <p><strong>@GxlDePaulinho</strong> twitter.com</p>
+                </a>
+                <a href="">
+                  <img src="/public/website-icon.svg" alt="" />
+                  <p>
+                    <strong> Stack Overflow - Where Dev... </strong>
+                    stackoverflow.com
+                  </p>
+                </a>
+                <a href="">
+                  <svg
+                    width="22px"
+                    height="22px"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    color="currentColor"
+                  >
+                    <path
+                      d="M14 12L10.5 14V10L14 12Z"
+                      fill="currentColor"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></path>
+                    <path
+                      d="M2 12.7075V11.2924C2 8.39705 2 6.94939 2.90549 6.01792C3.81099 5.08645 5.23656 5.04613 8.08769 4.96549C9.43873 4.92728 10.8188 4.8999 12 4.8999C13.1812 4.8999 14.5613 4.92728 15.9123 4.96549C18.7634 5.04613 20.189 5.08645 21.0945 6.01792C22 6.94939 22 8.39705 22 11.2924V12.7075C22 15.6028 22 17.0505 21.0945 17.9819C20.189 18.9134 18.7635 18.9537 15.9124 19.0344C14.5613 19.0726 13.1812 19.1 12 19.1C10.8188 19.1 9.43867 19.0726 8.0876 19.0344C5.23651 18.9537 3.81097 18.9134 2.90548 17.9819C2 17.0505 2 15.6028 2 12.7075Z"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    ></path>
+                  </svg>
+                  <p><strong>@KevinPowell</strong> youtube.com</p>
+                </a>
+              </div>
+              <script defer>
+                const scroller = document.querySelector(".scroller");
+
+                if (
+                  !window.matchMedia("(prefers-reduced-motion: reduce)").matches
+                ) {
+                  addAnimation();
+                }
+
+                function addAnimation() {
+                  scroller.setAttribute("data-animated", true);
+
+                  const scrollerInner = scroller.querySelector(".scroller > *");
+                  const scrollerContent = Array.from(scrollerInner.children);
+
+                  console.log(scrollerContent);
+                  scrollerContent.forEach((item) => {
+                    const duplicatedContent = item.cloneNode(true);
+                    duplicatedContent.setAttribute("aria-hidden", true);
+                    scrollerInner.appendChild(duplicatedContent);
+                  });
+                }
+              </script>
             </div>
-          </button>
-          <!-- <article class="dropdown__article" aria-hidden="true">
+          </div>
+          <article class="dropdown__article" aria-hidden="true">
             <h2>Dear valued users,</h2>
             <p>
               We appreciate your enthusiasm and support for our app! As we
@@ -223,7 +288,7 @@
               ease of use. Stay tuned for further updates! Best regards,
             </p>
             <p>The Saved Link Team 🚀</p>
-          </article> -->
+          </article>
         </section>
       </main>
       <footer class="footer">
@@ -251,8 +316,8 @@
               data-theme="light"
             >
               <svg
-                width="20px"
-                height="20px"
+                width="18px"
+                height="18px"
                 stroke-width="1.2"
                 viewBox="0 0 24 24"
                 fill="#FFC300 "
@@ -289,8 +354,8 @@
               data-theme="dark"
             >
               <svg
-                width="20px"
-                height="20px"
+                width="18px"
+                height="18px"
                 stroke-width="1.2"
                 viewBox="0 0 24 24"
                 fill="none"
@@ -327,8 +392,8 @@
               data-theme="system"
             >
               <svg
-                width="20px"
-                height="20px"
+                width="18px"
+                height="18px"
                 viewBox="0 0 24 24"
                 stroke-width="1.2"
                 fill="none"
