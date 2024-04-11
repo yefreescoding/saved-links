@@ -16,8 +16,11 @@ export function shortedUrl(url) {
 
 export function createTitle(url) {
   const hostname = new URL(url).hostname;
-  if (hostname.startsWith("www.youtube")) {
+
+  if (hostname.includes("youtube.com")) {
     return createYoutubeChannelTitle(url);
+  } else if (hostname.includes("twitter.com") || hostname.includes("x.com")) {
+    return createTwitterChannelTitle(url);
   } else {
     return getWebsiteName(url);
   }
@@ -31,10 +34,25 @@ function createYoutubeChannelTitle(url) {
 
   // If the URL matches the pattern, extract the channel name
   if (match && match[4]) {
-    return ` ${match[4]} Youtube Channel`;
+    return ` @${match[4]} Channel`;
   } else {
     console.error("Not a valid YouTube channel URL");
     return "Youtube Video";
+  }
+}
+
+function createTwitterChannelTitle(url) {
+  // Check if the URL is a valid Twitter account URL or X account URL
+  const regex = /^(https?:\/\/)?(www\.)?(twitter\.com|x\.com)\/([^/?]+)/;
+
+  const match = url.match(regex);
+
+  // If the URL matches the pattern, extract the account name
+  if (match && match[4]) {
+    return `Account @${match[4]}`;
+  } else {
+    console.error("Not a valid account URL");
+    return getWebsiteName(url);
   }
 }
 
@@ -65,33 +83,21 @@ export function displayLinks(arr, container) {
 }
 
 export function generateLinkHTML(link) {
+  let icon = "website";
+
+  if (link.shortedLink === "youtube.com") {
+    icon = "youtube";
+  } else if (
+    link.shortedLink === "twitter.com" ||
+    link.shortedLink === "x.com"
+  ) {
+    icon = "twitter";
+  }
+
   return `
     <li data-key="${link.key}" class="main__link" data-link-id="${link.id}">
       <a  href=${link.link} target="_blank">
-        <svg
-        width="25px"
-        height="25px"
-        stroke-width="1.9"
-        viewBox="0 0 24 24"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        color="currentColor"
-        >
-        <path
-          d="M14 11.9976C14 9.5059 11.683 7 8.85714 7C8.52241 7 7.41904 7.00001 7.14286 7.00001C4.30254 7.00001 2 9.23752 2 11.9976C2 14.376 3.70973 16.3664 6 16.8714C6.36756 16.9525 6.75006 16.9952 7.14286 16.9952"
-          stroke="currentColor"
-          stroke-width="1.9"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        ></path>
-        <path
-          d="M10 11.9976C10 14.4893 12.317 16.9952 15.1429 16.9952C15.4776 16.9952 16.581 16.9952 16.8571 16.9952C19.6975 16.9952 22 14.7577 22 11.9976C22 9.6192 20.2903 7.62884 18 7.12383C17.6324 7.04278 17.2499 6.99999 16.8571 6.99999"
-          stroke="currentColor"
-          stroke-width="1.9"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        ></path>
-        </svg>
+        <img src="/public/${icon}-icon.svg" alt=""/>
         <div>
           <h3>${link.title}</h3>
           <span> ${link.shortedLink} </span>
