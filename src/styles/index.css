@@ -69,10 +69,10 @@ body {
 }
 
 .loading_message {
-  --_color-success: hsl(121, 94%, 10%);
-  --_color-error: hsl(8, 95%, 20%);
-  --_color-bgk-success: hsl(107, 67%, 95%);
-  --_color-bgk-error: hsl(5, 64%, 95%);
+  --_color-success: hsl(121, 94%, 30%);
+  --_color-error: hsl(8, 95%, 30%);
+  --_color-bgk-success: hsl(107, 67%, 98%);
+  --_color-bgk-error: hsl(5, 64%, 98%);
   position: fixed;
   z-index: 9999;
   inset: auto 1rem 1rem auto;
@@ -94,14 +94,14 @@ body {
   transform: translateY(0);
   display: block;
   opacity: 1;
-  box-shadow: 0 0 16px var(--_color-bgk-success);
+  box-shadow: 0 0 3px var(--_color-bgk-success);
   border: 0.5px solid var(--_color-success);
   color: var(--_color-success);
   background-color: var(--_color-bgk-success);
 }
 
 .loading_message[data-error="true"] {
-  box-shadow: 0 0 16px var(--_color-bgk-error);
+  box-shadow: 0 0 3px var(--_color-bgk-error);
   border: 0.5px solid var(--_color-error);
   color: var(--_color-error);
   background-color: var(--_color-bgk-error);
