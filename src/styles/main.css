@@ -24,30 +24,32 @@
   }
 
   & .main__form_actions {
-    margin-top: 1.5rem;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 15em), 1fr));
+    padding-block: 1rem;
+    display: flex;
     align-items: center;
-    flex-wrap: wrap;
     gap: 0.5rem;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
 
-    /* background-color: red; */
     & a {
-      width: 100%;
+      width: fit-content;
       display: flex;
       align-items: center;
-      /* gap: 1.5rem; */
-      padding: 0.5rem;
-      color: hsl(0, 0%, 97%) !important;
-      /* border: 1px solid var(--clr-accent-2); */
+      gap: 0.5rem;
       white-space: nowrap;
+      flex-shrink: none;
+
+      padding: 0.5rem;
+      color: hsl(0, 0%, 97%);
       border-radius: 0.6rem;
       background-color: hsl(0, 0%, 20%);
 
-      & div {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
+      & svg {
+        max-width: 20px;
+      }
+
+      & p {
+        color: hsl(0, 0%, 97%);
       }
     }
   }
@@ -81,20 +83,20 @@
   & button:hover {
     color: var(--clr-bgk);
   }
-}
 
-.main__form:hover {
-  outline-offset: 3px;
-  color: var(--clr-text-base-hover);
-  outline: 1px solid var(--clr-text-base);
-}
+  &:hover {
+    outline-offset: 3px;
+    color: var(--clr-text-base-hover);
+    outline: 2px solid var(--clr-text-base);
+  }
 
-.main__form[data-error="true"] {
-  outline-offset: 3px;
-  outline: 3px solid hsl(0, 100%, 40%);
-  & input::placeholder {
-    text-transform: uppercase;
-    color: hsl(0, 100%, 95%);
+  &[data-error="true"] {
+    outline-offset: 3px;
+    outline: 3px solid hsl(0, 100%, 40%);
+    & input::placeholder {
+      text-transform: uppercase;
+      color: hsl(0, 100%, 95%);
+    }
   }
 }
 
@@ -246,5 +248,31 @@
   }
   &.no_results:hover {
     background-color: transparent;
+  }
+}
+
+.scroller[data-animated="true"] {
+  overflow: hidden;
+  -webkit-mask: linear-gradient(
+    90deg,
+    transparent,
+    hsl(0, 0%, 7%) 15%,
+    hsl(0, 0%, 7%) 85%,
+    transparent
+  );
+  mask: linear-gradient(90deg transparent, hsl(0, 0%, 7%) 20%);
+}
+.scroller[data-animated="true"] > * {
+  width: max-content;
+  flex-wrap: nowrap;
+  animation: scroll 70s linear infinite;
+}
+.scroller[data-animated="true"]:hover > * {
+  animation-play-state: paused;
+}
+
+@keyframes scroll {
+  to {
+    transform: translate(calc(-50% - 0.5rem));
   }
 }

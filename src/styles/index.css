@@ -81,6 +81,7 @@ body {
   margin: 1rem auto;
   font-weight: 600;
   border-radius: 0.5rem;
+  z-index: 99999999;
 
   /* transition animations */
   transform: translateY(100%);
