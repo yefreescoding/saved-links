@@ -105,7 +105,6 @@
   padding: 1rem;
   display: flex;
   justify-content: space-between;
-  border-bottom: 1px solid var(--clr-accent-2);
 
   & h3 {
     color: var(--clr-text-base);
@@ -273,6 +272,6 @@
 
 @keyframes scroll {
   to {
-    transform: translate(calc(-50% - 0.5rem));
+    transform: translate(calc(-50% - 0.25rem));
   }
 }
