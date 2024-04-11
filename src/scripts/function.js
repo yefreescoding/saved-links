@@ -97,7 +97,7 @@ export function generateLinkHTML(link) {
   return `
     <li data-key="${link.key}" class="main__link" data-link-id="${link.id}">
       <a  href=${link.link} target="_blank">
-        <img src="/public/${icon}-icon.svg" alt=""/>
+        <img src="/${icon}-icon.svg" alt=""/>
         <div>
           <h3>${link.title}</h3>
           <span> ${link.shortedLink} </span>
