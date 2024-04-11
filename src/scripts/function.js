@@ -7,26 +7,34 @@ export function shortedUrl(url) {
   const parsedUrl = new URL(url);
   let hostname = parsedUrl.hostname;
 
-  // Remove 'www.' prefix if present
   if (hostname.startsWith("www.")) {
     hostname = hostname.slice(4);
   }
+
   return hostname;
 }
 
 export function createTitle(url) {
-  // Check if the URL is a valid YouTube channel URL
+  const hostname = new URL(url).hostname;
+  if (hostname.startsWith("www.youtube")) {
+    return createYoutubeChannelTitle(url);
+  } else {
+    return getWebsiteName(url);
+  }
+}
+
+function createYoutubeChannelTitle(url) {
   const regex =
-    /^(https?:\/\/)?(www\.)?youtube\.com\/(user\/|channel\/|c\/)([^/?]+)/;
+    /^(https?:\/\/)?(www\.)?youtube\.com\/(user\/|channel\/|c\/|@)([^/?]+)/;
 
   const match = url.match(regex);
 
   // If the URL matches the pattern, extract the channel name
   if (match && match[4]) {
-    return "Youtube Channel " + match[4];
+    return ` ${match[4]} Youtube Channel`;
   } else {
     console.error("Not a valid YouTube channel URL");
-    return getWebsiteName(url);
+    return "Youtube Video";
   }
 }
 
@@ -38,7 +46,7 @@ export function getWebsiteName(url) {
       hostname = hostname.slice(4);
     }
 
-    let name = hostname.split(".")[0]; // Assuming the name is the first part of the hostname
+    let name = hostname.split(".")[0];
 
     return name;
   } catch (error) {
